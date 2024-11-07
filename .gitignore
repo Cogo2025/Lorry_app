@@ -1,0 +1,45 @@
+# Node.js Backend
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+dist/
+build/
+.env
+
+# Logs
+*.log
+*.out
+*.pid
+
+# Dependency directories
+/coverage
+/.pnp
+.pnp.js
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Frontend (Flutter)
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-app-ids
+pubspec.lock
+.flutter_version
+build/
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.iml
+
+# Miscellaneous
+*.swp
+*.swo
+
+# Cache
+.cache/
+.dart_tool/
+.packages
