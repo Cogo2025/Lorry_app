@@ -3,6 +3,8 @@ import 'driver_dashboard_page.dart';
 import 'package:intl/intl.dart'; // Import the intl package for date formatting
 
 class DriverDetailsPage extends StatefulWidget {
+  const DriverDetailsPage({super.key});
+
   @override
   _DriverDetailsPageState createState() => _DriverDetailsPageState();
 }

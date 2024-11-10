@@ -4,6 +4,8 @@ import 'account_selection_page.dart';
 class OtpVerificationPage extends StatelessWidget {
   final TextEditingController otpController = TextEditingController();
 
+  OtpVerificationPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

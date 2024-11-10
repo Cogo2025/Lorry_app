@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'like.dart';
+import 'notiee.dart';s
 
 class OwnerDashboardPage extends StatefulWidget {
   final String username;
 
-  const OwnerDashboardPage({Key? key, required this.username})
-      : super(key: key);
+  const OwnerDashboardPage({super.key, required this.username});
 
   @override
   _OwnerDashboardPageState createState() => _OwnerDashboardPageState();
@@ -14,7 +15,7 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
   bool viewMore = false;
   bool _showSearchBar = false;
   List<String> items = List.generate(8, (index) => 'Item ${index + 1}');
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,12 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
               ),
               child: IconButton(
                 icon: const Icon(Icons.notifications, color: Colors.black),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const NotieePage()),
+                  );
+                },
               ),
             ),
             const SizedBox(width: 8),
@@ -93,7 +99,7 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            Container(
+            SizedBox(
               height: 200,
               child: PageView(
                 children: [
@@ -106,7 +112,7 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
               ),
             ),
             const SizedBox(height: 16),
-            Container(
+            SizedBox(
               height: 400,
               child: Column(
                 children: [
@@ -165,7 +171,13 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
             ),
             IconButton(
               icon: const Icon(Icons.favorite, color: Colors.black),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CustomLayoutPage()),
+                );
+              },
             ),
             const SizedBox(width: 40), // Space for the FloatingActionButton
             IconButton(

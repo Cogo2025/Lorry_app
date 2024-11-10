@@ -7,6 +7,8 @@ class OwnerDetailsPage extends StatelessWidget {
   final TextEditingController locationController = TextEditingController();
   final TextEditingController cinController = TextEditingController();
 
+  OwnerDetailsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

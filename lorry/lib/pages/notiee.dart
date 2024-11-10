@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NotieePage extends StatefulWidget {
+  const NotieePage({super.key});
+
   @override
   _NotieePageState createState() => _NotieePageState();
 }

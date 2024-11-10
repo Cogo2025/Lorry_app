@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomLayoutPage extends StatelessWidget {
+  const CustomLayoutPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

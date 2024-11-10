@@ -4,6 +4,8 @@ void main() {
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,6 +15,8 @@ class MyApp extends StatelessWidget {
   }
 }
 class LoginSignupPage extends StatefulWidget {
+  const LoginSignupPage({super.key});
+
   @override
   _LoginSignupPageState createState() => _LoginSignupPageState();
 }
@@ -141,6 +145,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   }
 }
 class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -168,13 +174,13 @@ class LoginForm extends StatelessWidget {
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {},
-            child: Text('Login'),
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
+            child: Text('Login'),
           ),
         ],
       ),
@@ -182,6 +188,8 @@ class LoginForm extends StatelessWidget {
   }
 }
 class SignupForm extends StatelessWidget {
+  const SignupForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -211,13 +219,13 @@ class SignupForm extends StatelessWidget {
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {},
-            child: Text('Signup'),
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
+            child: Text('Signup'),
           ),
         ],
       ),

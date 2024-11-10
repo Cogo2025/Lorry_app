@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'like.dart'; // Update with the correct path
 
 class DriverDashboardPage extends StatefulWidget {
   final String username;
 
-  const DriverDashboardPage({Key? key, required this.username})
-      : super(key: key);
+  const DriverDashboardPage({super.key, required this.username});
 
   @override
   _DriverDashboardPageState createState() => _DriverDashboardPageState();
@@ -14,7 +14,7 @@ class _DriverDashboardPageState extends State<DriverDashboardPage> {
   bool viewMore = false;
   bool _showSearchBar = false;
   List<String> items = List.generate(8, (index) => 'Item ${index + 1}');
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class _DriverDashboardPageState extends State<DriverDashboardPage> {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            Container(
+            SizedBox(
               height: 200,
               child: PageView(
                 children: [
@@ -106,7 +106,7 @@ class _DriverDashboardPageState extends State<DriverDashboardPage> {
               ),
             ),
             const SizedBox(height: 16),
-            Container(
+            SizedBox(
               height: 400,
               child: Column(
                 children: [
@@ -165,7 +165,13 @@ class _DriverDashboardPageState extends State<DriverDashboardPage> {
             ),
             IconButton(
               icon: const Icon(Icons.favorite, color: Colors.black),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CustomLayoutPage()),
+                );
+              },
             ),
             const SizedBox(width: 40), // Space for the FloatingActionButton
             IconButton(

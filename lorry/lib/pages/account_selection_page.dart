@@ -3,6 +3,8 @@ import 'driver_details_page.dart';
 import 'owner_details_page.dart';
 
 class AccountSelectionPage extends StatelessWidget {
+  const AccountSelectionPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
