@@ -70,8 +70,7 @@ class AccountSelectionPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          icon: const Icon(Icons.drive_eta,
-                              size: 28), // Driver icon
+                          icon: const Icon(Icons.drive_eta, size: 28), // Driver icon
                           label: const Text(
                             'Driver',
                             style: TextStyle(fontSize: 18),
@@ -99,8 +98,7 @@ class AccountSelectionPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          icon: const Icon(Icons.account_balance,
-                              size: 28), // Updated Owner icon
+                          icon: const Icon(Icons.account_balance, size: 28), // Updated Owner icon
                           label: const Text(
                             'Owner',
                             style: TextStyle(fontSize: 18),
@@ -118,7 +116,3 @@ class AccountSelectionPage extends StatelessWidget {
     );
   }
 }
-
-
-"hello vishnu"
-//hello jash
