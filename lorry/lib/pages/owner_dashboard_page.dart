@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'like.dart';
-import 'notiee.dart';s
+import 'notiee.dart';
 
 class OwnerDashboardPage extends StatefulWidget {
   final String username;
