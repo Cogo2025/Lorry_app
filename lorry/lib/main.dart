@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Lorry App',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: WelcomePage(), // Ensure this is the correct page

@@ -2,25 +2,19 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'verifypost.dart';
-
 class OwnerPostPage extends StatefulWidget {
   const OwnerPostPage({Key? key}) : super(key: key);
-
   @override
   _OwnerPostPageState createState() => _OwnerPostPageState();
 }
-
 class _OwnerPostPageState extends State<OwnerPostPage> {
   final ImagePicker _picker = ImagePicker();
   List<XFile> _selectedImages = [];
-
-  // TextEditingController for each field
   TextEditingController _truckTypeController = TextEditingController();
   TextEditingController _bsVersionController = TextEditingController();
   TextEditingController _driverTypeController = TextEditingController();
   TextEditingController _timeDurationController = TextEditingController();
   TextEditingController _locationController = TextEditingController();
-
   Future<void> _pickImagesFromGallery() async {
     final List<XFile>? images = await _picker.pickMultiImage();
 
@@ -30,7 +24,6 @@ class _OwnerPostPageState extends State<OwnerPostPage> {
       });
     }
   }
-
   void _showImageSourceDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -70,7 +63,6 @@ class _OwnerPostPageState extends State<OwnerPostPage> {
       },
     );
   }
-
   void _goToVerifyPostPage() {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -85,7 +77,6 @@ class _OwnerPostPageState extends State<OwnerPostPage> {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,8 +137,6 @@ class _OwnerPostPageState extends State<OwnerPostPage> {
       ),
     );
   }
-
-  // Build method for editable text fields
   Widget _buildEditableTextField(TextEditingController controller, String hintText) {
     return TextField(
       controller: controller,  // Set the controller to handle input

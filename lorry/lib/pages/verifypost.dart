@@ -25,6 +25,76 @@ class VerifyPostPage extends StatefulWidget {
 }
 
 class _VerifyPostPageState extends State<VerifyPostPage> {
+  void _showEnhancedConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return FadeTransition(
+          opacity: Tween<double>(begin: 0, end: 1).animate(
+            CurvedAnimation(parent: ModalRoute.of(context)!.animation!, curve: Curves.easeIn),
+          ),
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            title: Row(
+              children: const [
+                Icon(Icons.warning, color: Colors.redAccent, size: 28),
+                SizedBox(width: 10),
+                Text('Verification'),
+              ],
+            ),
+            content: const Text(
+              'Are you sure you want to verify and post this content? Please ensure all details are accurate before proceeding.',
+              style: TextStyle(fontSize: 16),
+            ),
+            actionsAlignment: MainAxisAlignment.center,
+            actions: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  backgroundColor: Colors.grey[300],
+                ),
+                child: const Text('No', style: TextStyle(color: Colors.black)),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.redAccent,
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text('Yes, Post'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  // Add your post submission logic here
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Text('Post created Successfully'),
+                      duration: const Duration(seconds: 2),
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: Colors.green[400],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,25 +104,23 @@ class _VerifyPostPageState extends State<VerifyPostPage> {
         backgroundColor: Colors.purple[100],
         elevation: 0,
       ),
-      body: SingleChildScrollView( // This will make the entire page scrollable
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, // Align left for better spacing
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             const SizedBox(height: 20),
             const Text(
               'Verify Selected Images',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-            if (widget.images.isEmpty) // Handle the case where no images are selected
+            if (widget.images.isEmpty)
               const Text(
                 'No images selected',
                 style: TextStyle(fontSize: 16, color: Colors.red),
               ),
             const SizedBox(height: 20),
-            // Images will still scroll within this ListView
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: widget.images.isEmpty
@@ -81,8 +149,8 @@ class _VerifyPostPageState extends State<VerifyPostPage> {
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.file(
                                   File(image.path),
-                                  width: MediaQuery.of(context).size.width * 0.8, // Adjusted width (80% of screen width)
-                                  height: 150, // Reduced height for smaller image boxes
+                                  width: MediaQuery.of(context).size.width * 0.8,
+                                  height: 150,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -92,12 +160,12 @@ class _VerifyPostPageState extends State<VerifyPostPage> {
                       );
                     }).toList(),
             ),
-                        const Text(
+            const SizedBox(height: 20),
+            const Text(
               'Verify Selected Details',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-            // Editable text fields inside gray boxes, now only readable
             _buildEditableDetailBox(widget.truckType, 'Truck Type'),
             const SizedBox(height: 8),
             _buildEditableDetailBox(widget.bsVersion, 'BS Version'),
@@ -107,18 +175,28 @@ class _VerifyPostPageState extends State<VerifyPostPage> {
             _buildEditableDetailBox(widget.timeDuration, 'Time Duration'),
             const SizedBox(height: 8),
             _buildEditableDetailBox(widget.location, 'Location'),
+            const SizedBox(height: 30),
+            Center(
+              child: ElevatedButton(
+                onPressed: _showEnhancedConfirmationDialog,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple[200],
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                ),
+                child: const Text('Post'),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  // Helper function to create editable text field in a styled gray box (only readable)
   Widget _buildEditableDetailBox(String value, String label) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.grey[200], // Light gray background
+        color: Colors.grey[200],
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: Colors.grey, width: 1),
       ),
