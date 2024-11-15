@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class NotieePage extends StatefulWidget {
-  const NotieePage({super.key});
-
   @override
   _NotieePageState createState() => _NotieePageState();
 }
@@ -71,8 +69,7 @@ class _NotieePageState extends State<NotieePage> {
                       title: isNotificationTabSelected
                           ? 'New Notification ${index + 1}'
                           : 'Matched Item ${index + 1}',
-                      subtitle:
-                          'Details about ${isNotificationTabSelected ? 'notification' : 'matched item'} ${index + 1}',
+                      subtitle: 'Details about ${isNotificationTabSelected ? 'notification' : 'matched item'} ${index + 1}',
                     ),
                     SizedBox(height: 10),
                   ],
@@ -111,10 +108,7 @@ class _NotieePageState extends State<NotieePage> {
   }
 
   // Card builder
-  Widget _buildCard(
-      {required IconData icon,
-      required String title,
-      required String subtitle}) {
+  Widget _buildCard({required IconData icon, required String title, required String subtitle}) {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(

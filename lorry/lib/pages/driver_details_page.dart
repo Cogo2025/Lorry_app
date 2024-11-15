@@ -3,8 +3,6 @@ import 'driver_dashboard_page.dart';
 import 'package:intl/intl.dart'; // Import the intl package for date formatting
 
 class DriverDetailsPage extends StatefulWidget {
-  const DriverDetailsPage({super.key});
-
   @override
   _DriverDetailsPageState createState() => _DriverDetailsPageState();
 }
@@ -67,15 +65,13 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
                   ),
                 ],
               ),
-              child: SingleChildScrollView(
-                // Add scroll functionality
+              child: SingleChildScrollView( // Add scroll functionality
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'Driver Details',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     const Text(
@@ -99,10 +95,8 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
 
                     // Date of Birth Field with Date Picker
                     GestureDetector(
-                      onTap: () =>
-                          _selectDate(context), // Show date picker when tapped
-                      child: AbsorbPointer(
-                        // Prevent direct editing
+                      onTap: () => _selectDate(context), // Show date picker when tapped
+                      child: AbsorbPointer( // Prevent direct editing
                         child: TextField(
                           controller: dobController,
                           decoration: InputDecoration(
@@ -147,8 +141,7 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
                     DropdownButtonFormField<String>(
                       value: selectedGender,
                       hint: const Text('Select Gender'),
-                      items: <String>['Male', 'Female', 'Other']
-                          .map((String value) {
+                      items: <String>['Male', 'Female', 'Other'].map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
@@ -179,8 +172,7 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => DriverDashboardPage(
-                                username: nameController
-                                    .text, // Pass the username here
+                                username: nameController.text, // Pass the username here
                               ),
                             ),
                           );

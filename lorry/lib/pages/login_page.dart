@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'otp_verification_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -22,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF342290),
+              Color(0xFF342290), 
               Color(0xFF4B2BFF),
             ],
           ),
@@ -109,8 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                             )
                           : const Text(
                               'Verify OTP',
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.white),
+                              style: TextStyle(fontSize: 18, color: Colors.white),
                             ),
                     ),
                   ),
@@ -122,7 +119,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
   void _submitPhoneNumber() {
     if (_formKey.currentState!.validate()) {
       setState(() {

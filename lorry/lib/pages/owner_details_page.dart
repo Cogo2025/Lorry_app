@@ -7,8 +7,6 @@ class OwnerDetailsPage extends StatelessWidget {
   final TextEditingController locationController = TextEditingController();
   final TextEditingController cinController = TextEditingController();
 
-  OwnerDetailsPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +24,7 @@ class OwnerDetailsPage extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: SingleChildScrollView(
-              // Allow scrolling
+            child: SingleChildScrollView(  // Allow scrolling
               child: Container(
                 padding: const EdgeInsets.all(20),
                 width: 350, // Set fixed width for the container
@@ -92,22 +89,18 @@ class OwnerDetailsPage extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     // Save Button
-                    Center(
-                      // Center the button
+                    Center( // Center the button
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              Colors.lightBlue, // Set button color to blue
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 32),
+                          backgroundColor: Colors.lightBlue, // Set button color to blue
+                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 32),
                         ),
                         onPressed: () {
                           // Navigate to OwnerDashboardPage when Save is pressed
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  OwnerDashboardPage(username: ''),
+                              builder: (context) => OwnerDashboardPage(ownerName: '',),
                             ),
                           );
                         },
