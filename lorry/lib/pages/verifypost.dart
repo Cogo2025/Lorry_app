@@ -74,10 +74,11 @@ class _VerifyPostPageState extends State<VerifyPostPage> {
                 child: const Text('Yes, Post'),
                 onPressed: () {
                   Navigator.of(context).pop();
-                  // Add your post submission logic here
+                  Navigator.of(context).pop(true); // Pass 'true' to indicate successful post
+
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: const Text('Post created Successfully'),
+                      content: const Text('Post created successfully'),
                       duration: const Duration(seconds: 2),
                       behavior: SnackBarBehavior.floating,
                       backgroundColor: Colors.green[400],
