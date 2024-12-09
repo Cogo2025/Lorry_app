@@ -22,7 +22,7 @@ class OwnerProfile extends StatelessWidget {
                 // Profile image
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage('assets/images/owner_profile.png'), // Replace with your image path
+                  backgroundImage: AssetImage('assets/images/owner.png'), // Replace with your image path
                 ),
                 SizedBox(height: 10),
                 // Owner's name

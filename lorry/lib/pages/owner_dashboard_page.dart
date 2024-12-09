@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-// Assuming CustomLayoutPage and OwnerProfile are already defined
+// Assuming CustomLayoutPage, OwnerProfile, and OwnerPostPage are already defined
 import 'like.dart';
 import 'ownerprofile.dart';
+import 'owner_post.dart';
 import 'notiee.dart';
 
 class OwnerDashboardPage extends StatefulWidget {
@@ -176,7 +177,7 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
             items: <Widget>[
               Icon(Icons.home, size: 30),
               Icon(Icons.person, size: 30), // Person icon at index 1
-              Icon(Icons.business, size: 30),
+              ImageIcon(AssetImage("assets/images/lorryicon.png"),size: 30,),
               Icon(Icons.favorite, size: 30),
             ],
             color: const Color(0xFF7247FF),
@@ -190,7 +191,11 @@ class _OwnerDashboardPageState extends State<OwnerDashboardPage> {
               backgroundColor: Colors.white,
               shape: const CircleBorder(),
               onPressed: () {
-                // Handle the "+" button action here
+                // Navigate to OwnerPostPage when "+" button is clicked
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OwnerPostPage()),
+                );
               },
               child: const Icon(Icons.add, color: Colors.black),
             ),

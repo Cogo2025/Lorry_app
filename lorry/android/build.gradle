@@ -1,7 +1,24 @@
+buildscript {
+    repositories {
+        google() // Required for Android tools
+        mavenCentral() // General dependency repository
+    }
+    dependencies {
+    classpath 'com.android.tools.build:gradle:8.1.0'
+}
+// android {
+//     compileSdkVersion 33
+//     defaultConfig {
+//         targetSdkVersion 33
+//     }
+// }
+
+}
+
 allprojects {
     repositories {
-        google()
-        mavenCentral()
+        google() // Required for Android tools
+        mavenCentral() // General dependency repository
     }
 }
 
